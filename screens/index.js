@@ -1,11 +1,11 @@
 import Login from "./Login";
 import Signup from "./Signup";
 import Welcome from "./Welcome";
-import Profile from "./Profile";
- export {
+import UserProfile from "./UserProfile"; 
+export {
     Login,
     Signup,
     Welcome,
-    Profile,
+    UserProfile,
    
  }

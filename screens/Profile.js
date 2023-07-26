@@ -1,21 +1,11 @@
-
-import React, { useState, useEffect } from "react";
-import {
-  View,
-  Text,
-  Image,
-  StyleSheet,
-  FlatList,
-  TouchableOpacity,
-  TextInput,
-  Modal,
-  Button,
-  ScrollView,
-} from "react-native";
-import ProgressCircleBar from "./components/ProgressCircleBar";
-import axios from 'axios';
-import PersonalInfoCard from "./components/PersonalInfo";
-import * as ImagePicker from 'expo-image-picker';
+/*import React, {useState, useEffect}  from "react";
+import { View, Text, Image, StyleSheet, FlatList, TouchableOpacity, TextInput, Modal, Button, ScrollView} from "react-native";
+import { useRoute } from "@react-navigation/native";
+import { useFonts } from "expo-font";
+import axios from "axios";
+import ProgressCircleBar from "../components/ProgressCircleBar";
+import PersonalInfoCard from "../components/PersonalInfo";
+import * as ImagePicker  from "expo-image-picker";
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 
@@ -74,8 +64,6 @@ const Profile = () => {
     }
   };
 
-  const [educationData, setEducationData] = useState([]);
-  const [certificationData, setCertificationData] = useState([]);
   const [newEducationItem, setNewEducationItem] = useState("");
   const [newCertificationItem, setNewCertificationItem] = useState("");
   const [educationItems, setEducationItems] = useState([
@@ -230,7 +218,6 @@ const Profile = () => {
           </View>
 
           <View style={styles.progressCircleContainer}>
-            {/* Overdue Tasks Circle */}
             <ProgressCircleBar
               progress={overdueTasks / 100}
               size={100}
@@ -244,16 +231,13 @@ const Profile = () => {
           </View>
         </View>
 
-        {/* Task Card */}
         <TouchableOpacity onPress={toggleTaskList}>
           <View style={styles.taskCard}>
-            {/* Heading row */}
             <View style={styles.taskHeadingRow}>
               <Text style={styles.taskHeadingText}>Task Title</Text>
               <Text style={styles.taskHeadingText}>Status</Text>
             </View>
 
-            {/* Task list */}
             {isTaskListExpanded ? (
               <FlatList
                 data={tasks}
@@ -316,13 +300,11 @@ const Profile = () => {
   </View>
 </TouchableOpacity>
 
-        {/* Education Card */}
         <PersonalInfoCard
           title="Education"
           data={educationItems}
           onDelete={handleDeleteEducation}
         />
-        {/* Add Education */}
         <View style={styles.addInfoContainer}>
           <TextInput
             style={styles.input}
@@ -348,7 +330,6 @@ const Profile = () => {
           data={certificationItems}
           onDelete={handleDeleteCertification}
         />
-        {/* Add Certification */}
         <View style={styles.addInfoContainer}>
           <TextInput
             style={styles.input}
@@ -372,203 +353,5 @@ const Profile = () => {
     </ScrollView>
   );
 };
-const styles = StyleSheet.create({
-  scrollViewContainer: {
-    flexGrow: 1,
-  },
-    Topcontainer: {
-      flex: 1,
-      backgroundColor: 'white', 
-      paddingHorizontal: 8,
-      paddingTop: 10,
-      paddingBottom: 30,
-      shadowColor: '#2a7db6',
-      shadowOffset: { width: 1, height: 2 },
-      shadowOpacity: 1,
-      shadowRadius: 8,
-      justifyContent: 'center', 
-      alignItems: 'center', 
-      borderBottomLeftRadius: 30,
-      borderBottomRightRadius: 30,
-      borderTopLeftRadius: 30,
-      borderTopRightRadius: 30,
-      paddingBottom: 30,
-    },
-    
-  profileContainer: {
-    flex: 0.3,
-    flexDirection:'column',
-    backgroundColor: 'white',
-    paddingHorizontal: 8,
-    paddingTop: 10,
-    paddingBottom: 30,
-    borderBottomLeftRadius: 30,
-    borderBottomRightRadius: 30,
-    borderTopLeftRadius: 30,
-    borderTopRightRadius: 30,
-    paddingBottom: 30,
-  },
-  progressContainer: {
-    flexDirection: 'row',
-    backgroundColor: 'white',
-    justifyContent: 'space-around',
-    marginTop: -5,
-    borderBottomLeftRadius: 30,
-    borderBottomRightRadius: 30,
-    borderTopLeftRadius: 30,
-    borderTopRightRadius: 30,
-    paddingBottom: 30,
-    shadowColor: '#2a7db6',
-      shadowOffset: { width: 1, height: 2 },
-      shadowOpacity: 1,
-      shadowRadius: 8,
-  },
 
-  completedTasksText: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    fontFamily: 'FiraSans_LightItalic',
-    marginTop: 120,
-    marginLeft:-100,
-  },
-  overdueTasksText: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    fontFamily: 'FiraSans_LightItalic',
-    marginTop: 120,
-    marginLeft:-100,
-
-  },
-  jobCard: {
-    backgroundColor: "white",
-    borderRadius: 20,
-    marginTop: 20,
-    fontSize:40,
-    padding: 10,
-    width: 350,
-    shadowColor: "#2a7db6",
-    shadowOffset: { width: 1, height: 2 },
-    shadowOpacity: 1,
-    shadowRadius: 8,
-  },
-  jobItem: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    paddingVertical: 5,
-    borderBottomWidth: 1,
-    borderBottomColor: "#ccc",
-  },
-  itemInfo: {
-    alignItems: "center",
-  },
-  itemHeading: {
-    fontSize: 16,
-    fontWeight: "bold",
-    marginBottom: 5, 
-  },
-  itemText: {
-    fontSize: 14,
-  },
-  taskCard: {
-    backgroundColor: 'white',
-    borderRadius: 20,
-    marginTop: 20,
-    padding: 10,
-    width:350,
-    shadowColor: '#2a7db6',
-      shadowOffset: { width: 1, height: 2 },
-      shadowOpacity: 1,
-      shadowRadius: 8,     
-  },
-  taskHeadingRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingVertical: 5,
-    borderBottomWidth: 1,
-    borderBottomColor: '#ccc',
-  },
-  taskHeadingText: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    fontFamily: ' FiraSans_SemiBold',
-  },
-  taskItem: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingVertical: 5,
-    borderBottomWidth: 1,
-    borderBottomColor: '#ccc',
-  },
-  taskTitle: {
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
- 
-  profileInfo: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 20,
-    
-  },
-  profileImage: {
-    height: 130,
-    width: 130,
-    borderRadius: 999,
-    marginTop: 50,
-    
-  },
-  profileTextContainer: {
-    marginLeft: 10,
-    marginTop: 5,
-  },
-  nameText: {
-    fontFamily: 'FiraSans_Bold',
-    color: 'black',
-    fontSize: 30,
-    marginBottom: 5,
-  },
-  designationText: {
-    fontFamily: 'Light',
-    color: 'black',
-    fontSize: 20,
-  },
-  progressCircleContainer: {
-    flexDirection:'row',
-    justifyContent: 'space-around',
-    marginTop: 50,
-  },
-  minimizedRow: {
-    paddingVertical: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: '#ccc',
-    alignItems: 'center',
-  },
-  minimizedText: {
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
-
-  editModalContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  editProfileImage: {
-    width: 150,
-    height: 150,
-    borderRadius: 75,
-    marginBottom: 20,
-  },
-  input: {
-    width: '80%',
-    height: 40,
-    borderBottomWidth: 1,
-    borderBottomColor: '#ccc',
-    marginBottom: 20,
-  },
-
-});
-
-export default Profile;
+export default Profile;*/

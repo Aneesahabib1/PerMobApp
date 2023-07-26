@@ -40,7 +40,8 @@ const handleSearch = (text) => {
 
 return(
     <View style={styles.mainContainer}>
-        <Text style={styles.mainHeader}>Employee Tasks</Text>
+        <View style={styles.titleContainer}>
+        <Text style={styles.title}>Employee Tasks</Text></View>
         <TextInput
         style={styles.searchBar}
         placeholder="Search by ID"
@@ -77,12 +78,29 @@ return(
 };
 
 const styles = StyleSheet.create({
+  title: {
+    fontWeight:'bold',    fontSize: 20,
+        marginBottom: 16,
+        marginLeft:100,
+        marginTop:20,
+        textAlign:'center',
+        color:'#153e5b',
+      },
+      titleContainer:{
+        backgroundColor:'#349ce4',
+        flexDirection:'row',
+        alignItems: 'center',
+        paddingHorizontal: 15,
+        paddingTop: 20,
+        width:'150%',
+          },
+
     searchBar: {
         height: 40,
         width:150,
         marginLeft:20,
         borderRadius: 10,
-        backgroundColor:'white',
+        backgroundColor:'lightblue',
         paddingHorizontal: 10,
         shadowColor: '#d6ebfa',
         margin: 10,
@@ -95,8 +113,8 @@ const styles = StyleSheet.create({
     mainContainer: {
       width: "100%",
       minHeight: "100%",
-      paddingVertical: 50,
       backgroundColor: "#f4f5ff",
+      padding:0
     },
     card: {
       width: 250,
@@ -130,7 +148,7 @@ const styles = StyleSheet.create({
     },
     data: {
       fontSize: 20,
-      color: "#fff",
+      color: "#153e5b",
       fontFamily: "JosefinSans_400Regular",
       
     },

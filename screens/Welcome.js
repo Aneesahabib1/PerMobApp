@@ -43,20 +43,21 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingHorizontal: 20,
+    padding:0
   },
   title: {
     color: '#153e5b',
     fontWeight: 'bold',
     fontSize: 40,
     textAlign: 'center',
-    marginBottom: 20,
+    marginBottom: 100,
   },
   image: {
     width: '100%',
     height: undefined,
     aspectRatio: 750 / 350,
-    marginBottom: 20,
+    marginBottom: 50,
+    alignItems:'center'
   },
   button: {
     backgroundColor: '#f4f5ff',
@@ -68,6 +69,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.4,
     shadowRadius: 2,
     elevation: 2,
+    
   },
   buttonText: {
     color: '#153e5b',
@@ -79,13 +81,19 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: 20,
+    marginBottom:100
+
   },
   loginText: {
     color: '#0a1f2e',
     fontWeight: 'bold',
+    marginBottom:20
   },
   loginLink: {
     color: '#349ce4',
     marginLeft: 5,
   },
+  curveContainer:{
+    marginBottom:-100
+  }
 });

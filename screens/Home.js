@@ -16,7 +16,7 @@ import Profile from './Profile';
 import RequestedAttendance from './RequestedAttendance';
 import ReviewScreen from './Review';
 import EmployeeMD from './EmployeeMD';
-
+import UserProfile from './UserProfile';
 
 export default function Home({ }) {
 
@@ -167,7 +167,7 @@ const TabButton = (currentTab, setCurrentTab, title, image, navigation) => {
         navigation.navigate("Welcome"); 
       }
         else if (title === "Profile") {
-          navigation.navigate("Profile"); 
+          navigation.navigate("UserProfile"); 
         }
         else if (title === "RequestAttendance") {
           navigation.navigate("RequestAttendance"); 

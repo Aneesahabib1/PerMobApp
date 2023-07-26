@@ -79,16 +79,15 @@ return(
 const styles = StyleSheet.create({
 
   title: {
-    fontFamily:'Light',
-    fontSize: 20,
+fontWeight:'bold',    fontSize: 20,
     marginBottom: 16,
     marginLeft:85,
     marginTop:20,
     textAlign:'center',
-    color:'white',
+    color:'#153e5b',
   },
   titleContainer:{
-    backgroundColor:'#153e5b',
+    backgroundColor:'#349ce4',
     flexDirection:'row',
     alignItems: 'center',
     paddingHorizontal: 15,
@@ -101,7 +100,7 @@ const styles = StyleSheet.create({
         width:150,
         marginLeft:20,
         borderRadius: 10,
-        backgroundColor:'white',
+        backgroundColor:'lightblue',
         paddingHorizontal: 10,
         shadowColor: '#d6ebfa',
         margin: 10,
@@ -114,8 +113,8 @@ const styles = StyleSheet.create({
     mainContainer: {
       width: "100%",
       minHeight: "100%",
-      paddingVertical: 50,
       backgroundColor: "#f4f5ff",
+      padding:0
     },
     card: {
       width: 250,
@@ -149,7 +148,7 @@ const styles = StyleSheet.create({
     },
     data: {
       fontSize: 20,
-      color: "#fff",
+      color: "#153e5b",
       fontFamily: "JosefinSans_400Regular",
       
     },

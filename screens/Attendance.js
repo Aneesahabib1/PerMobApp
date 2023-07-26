@@ -1,14 +1,3 @@
-/*import { View, Text } from 'react-native'
-import React from 'react'
-import { SafeAreaView } from 'react-native-safe-area-context'
-
-export default function Attendance() {
-  return (
-    <SafeAreaView>
-      <Text>Home Screen</Text>
-    </SafeAreaView>
-  )
-}*/
 
 import { View, Text, StyleSheet, FlatList, TextInput } from 'react-native'
 import React,{useEffect, useState} from 'react'
@@ -51,14 +40,15 @@ const handleSearch = (text) => {
 
 return(
     <View style={styles.mainContainer}>
-        <Text style={styles.mainHeader}>Employee Attendance</Text>
+       <View style={styles.titleContainer}>
+      <Text style={styles.title}>Employee Attendance</Text></View> 
         <TextInput
         style={styles.searchBar}
         placeholder="Search by ID"
         onChangeText={handleSearch}
         value={searchText}
       />
-            {filteredData.length > 0 ? (
+      {filteredData.length > 0 ? (
 
  <FlatList
         ref={(ref) => (flatListRef = ref)}
@@ -87,12 +77,29 @@ return(
 };
 
 const styles = StyleSheet.create({
+  title: {
+    fontWeight:'bold',    fontSize: 20,
+        marginBottom: 16,
+        marginLeft:85,
+        marginTop:20,
+        textAlign:'center',
+        color:'#153e5b',
+      },
+      titleContainer:{
+        backgroundColor:'#349ce4',
+        flexDirection:'row',
+        alignItems: 'center',
+        paddingHorizontal: 15,
+        paddingTop: 20,
+        width:'150%',
+          },
+
     searchBar: {
         height: 40,
         width:150,
         marginLeft:20,
         borderRadius: 10,
-        backgroundColor:'white',
+        backgroundColor:'lightblue',
         paddingHorizontal: 10,
         shadowColor: '#d6ebfa',
         margin: 10,
@@ -105,7 +112,7 @@ const styles = StyleSheet.create({
     mainContainer: {
       width: "100%",
       minHeight: "100%",
-      paddingVertical: 50,
+      padding: 0,
       backgroundColor: "#f4f5ff",
     },
     card: {
@@ -140,7 +147,7 @@ const styles = StyleSheet.create({
     },
     data: {
       fontSize: 20,
-      color: "#fff",
+      color: "#153e5b",
       fontFamily: "JosefinSans_400Regular",
       
     },

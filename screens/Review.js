@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     backgroundColor:'#d6ebfa'
   },
   titleContainer:{
-backgroundColor:'#153e5b',
+backgroundColor:'#349ce4',
 flexDirection:'row',
 alignItems: 'center',
 paddingHorizontal: 15,
@@ -63,13 +63,11 @@ paddingTop: 20,
 width:'150%',
   },
   title: {
-    fontFamily:'Light',
-
-    fontSize: 20,
+    fontWeight:'bold',    fontSize: 20,
     marginBottom: 16,
     marginTop:20,
     textAlign:'center',
-    color:'white',
+    color:'#153e5b',
   },
 });
 

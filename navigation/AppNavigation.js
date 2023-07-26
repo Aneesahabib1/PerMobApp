@@ -13,6 +13,7 @@ import { Welcome } from '../screens';
 import RequestedAttendance from '../screens/RequestedAttendance';
 import Review from '../screens/Review';
 import EmployeeMD from '../screens/EmployeeMD';
+import UserProfile from '../screens/UserProfile';
 const Stack = createNativeStackNavigator();
 
 export default function AppNavigation() {
@@ -25,13 +26,12 @@ export default function AppNavigation() {
         <Stack.Screen name="Login" options={{ headerShown: false }} component={Login} />
         <Stack.Screen name="Home" options={{ headerShown: false }}  component={Home} />
         <Stack.Screen name="Signup"options={{ headerShown: false }}  component={Signup} />
-        <Stack.Screen name="Attendance"  component={Attendance} />
-        <Stack.Screen name="RequestAttendance"  component={RequestedAttendance} />
+        <Stack.Screen name="Attendance" options={{ headerShown: false }}   component={Attendance} />
+        <Stack.Screen name="RequestAttendance" options={{ headerShown: false }}   component={RequestedAttendance} />
         <Stack.Screen name="Task" options={{ headerShown: false }} component={Task} />
         <Stack.Screen name="PieChartComponent" options={{ headerShown: false }}  component={PieChartComponent} />
         <Stack.Screen name="BarChartComponent"  options={{ headerShown: false }} component={BarChartComponent} />
-        <Stack.Screen name="Profile" options={{ headerShown: false }} component={Profile} />
-        <Stack.Screen name="Review" component={Review} />
+        <Stack.Screen name="Review" options={{ headerShown: false }} component={Review} />
         <Stack.Screen name="EmployeeMD" options={{ headerShown: false }} component={EmployeeMD} />
 
       </Stack.Navigator>

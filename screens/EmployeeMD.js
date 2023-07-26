@@ -41,7 +41,7 @@ const handleSearch = (text) => {
 return(
     <View style={styles.mainContainer}>
 <View style={styles.titleContainer}>
-      <Text style={styles.title}>Employee Maste Data</Text></View>     
+      <Text style={styles.title}>Employee Master Data</Text></View>     
          <TextInput
         style={styles.searchBar}
         placeholder="Search by ID"
@@ -58,7 +58,7 @@ return(
     return(<View style={styles.card}>
         <View>
           <View style={styles.dataContainer}>
-            <Text style={styles.data}> Employees List </Text>
+            <Text style={styles.data}> Employee </Text>
           </View>
           <View style={styles.mainContain}>
             <Text style={styles.myName}> ID: {item.id} </Text>
@@ -82,16 +82,15 @@ return(
 
 const styles = StyleSheet.create({
     title: {
-        fontFamily:'Light',
-        fontSize: 20,
-        marginBottom: 16,
-        marginLeft:80,
-        marginTop:20,
-        textAlign:'center',
-        color:'white',
+      fontWeight:'bold',    fontSize: 20,
+      marginBottom: 16,
+      marginLeft:85,
+      marginTop:20,
+      textAlign:'center',
+      color:'#153e5b',
       },
       titleContainer:{
-        backgroundColor:'#153e5b',
+        backgroundColor:'#349ce4',
         flexDirection:'row',
         alignItems: 'center',
         paddingHorizontal: 15,
@@ -103,7 +102,7 @@ const styles = StyleSheet.create({
         width:150,
         marginLeft:20,
         borderRadius: 10,
-        backgroundColor:'white',
+        backgroundColor:'lightblue',
         paddingHorizontal: 10,
         shadowColor: '#d6ebfa',
         margin: 10,
@@ -116,7 +115,7 @@ const styles = StyleSheet.create({
     mainContainer: {
       width: "100%",
       minHeight: "100%",
-      paddingVertical: 50,
+      padding: 0,
       backgroundColor: "#f4f5ff",
     },
     card: {
@@ -152,7 +151,7 @@ const styles = StyleSheet.create({
     },
     data: {
       fontSize: 20,
-      color: "#fff",
+      color: "#153e5b",
       fontFamily: "JosefinSans_400Regular",
       
     },

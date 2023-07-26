@@ -22,36 +22,38 @@ export default function Login() {
     return emailRegex.test(email.trim());
   };
 
-  const isPasswordValid = (password) => {
-    const passwordRegex = /^[a-zA-Z0-9]{8,}$/;
-    return passwordRegex.test(password);
-  };
-
   const handleLogin = async () => {
-    // Validate form data
-    if (!isEmailValid(credentials.email) || !isPasswordValid(credentials.password)) {
+    if (!isEmailValid(credentials.email) ) {
       alert('Please enter a valid email and password.');
       return;
     }
-
+  
     try {
-      const response = await fetch('https://64bbb5b37b33a35a444697dd.mockapi.io/MobAppLogIn', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(credentials),
-      });
-
-      if (response.ok) {
-        navigation.navigate('Home');
+      // Request to the API to fetch all records
+      const response = await fetch('https://64bbb5b37b33a35a444697dd.mockapi.io/MobAppSignup');
+      if (!response.ok) {
+        console.log('Failed to fetch user records from API');
+        return;
+      }
+  
+      const data = await response.json();
+  
+      // To check if any user record in the API matches the provided email and password
+      const matchingUser = data.find(
+        (user) => user.email === credentials.email && user.password === credentials.password
+      );
+  
+      if (matchingUser) {
+        alert('Login successful!'); 
+        navigation.navigate('Home'); 
       } else {
-        console.log('Login failed');
+        alert('Invalid email or password.'); 
       }
     } catch (error) {
       console.error('Error occurred:', error);
     }
   };
+   
   return (
     <TouchableWithoutFeedback onPress={dismissKeyboard}>
     <View style={{ flex: 1, backgroundColor: 'white' }}>
@@ -76,10 +78,7 @@ export default function Login() {
         </View>
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <Text style={styles.title} >Log In to PerM</Text>
-        <Text style={{
-                        fontSize: 16,
-                        color: '#0a1f2e'
-                    }}>Welcome back to your Account!</Text>
+        <Text style={styles.text} >Welcome back to your Account!</Text>
       </View>
     </SafeAreaView>
     <View
@@ -138,13 +137,11 @@ export default function Login() {
           value={credentials.password}
           onChangeText={(text) => setCredentials({ ...credentials, password: text })}
         />
-        {!isPasswordValid(credentials.password) && credentials.password.length > 0 && (
-          <Text style={{ color: 'red', marginLeft: 4 }}>Password must be at least 8 characters long and contain only alphanumeric characters.</Text>
-        )}
+              
 
         <View style={{ paddingHorizontal: 100 }}>
           <TouchableOpacity onPress={handleLogin} style={{ paddingVertical: 12, paddingHorizontal: 16, backgroundColor: 'white', borderRadius: 20 }}>
-            <Text style={{ fontSize: 16, fontWeight: 'bold', textAlign: 'center', color: '#0a1f2e' }}>
+            <Text style={{ fontSize: 16, fontWeight: 'bold', textAlign: 'center', color: '#0a1f2e' , }}>
               LogIn
             </Text>
           </TouchableOpacity></View>
@@ -167,5 +164,14 @@ const styles = StyleSheet.create({
       fontWeight: 'bold',
       fontSize: 40,
       textAlign: 'center',
-      marginBottom: 20,
-    }})
+      marginBottom: 10,
+    },
+    curveContainer:{
+marginTop:-50,
+marginBottom:100
+    },
+    text:{
+      fontSize: 16,
+      color: '#0a1f2e',
+    marginBottom:-50    }
+  })

@@ -87,10 +87,7 @@ export default function SignUpScreen() {
         </View>
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <Text style={styles.title} >Register to PerM</Text>
-        <Text style={{
-                        fontSize: 16,
-                        color: '#0a1f2e'
-                    }}>Signup to Create your Account!</Text>
+        <Text style={styles.text}>Signup to Create your Account!</Text>
       </View>
     </SafeAreaView>
     <View
@@ -171,10 +168,20 @@ export default function SignUpScreen() {
 }
 const styles = StyleSheet.create({
    
-    title: {
-      color: '#153e5b',
-      fontWeight: 'bold',
-      fontSize: 40,
-      textAlign: 'center',
-      marginBottom: 20,
+  title: {
+    color: '#153e5b',
+    fontWeight: 'bold',
+    fontSize: 40,
+    textAlign: 'center',
+    marginBottom: 10,
+  },
+  curveContainer:{
+marginTop:-50,
+marginBottom:100
+  },
+  text:{
+    fontSize: 16,
+    color: '#0a1f2e',
+  marginBottom:-50 
+
     }})
